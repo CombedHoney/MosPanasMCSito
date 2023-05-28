@@ -1,0 +1,171 @@
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+
+    <title>MosPanas MC - Home</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,800;1,900&amp;display=swap" rel="stylesheet">
+
+    <!-- ICONS -->
+    <link href="https://cdn.materialdesignicons.com/4.7.95/css/materialdesignicons.min.css" rel="stylesheet">
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body style="overflow: auto;">
+    <!-- LOADING -->
+    <div class="loading" id="loading" style="animation: 0.5s ease 0s 1 normal none running loaded;">
+        <img src="assets/logo.png" alt="">
+    </div>
+
+    <!-- MENU -->
+    <div class="menu close" id="menu">
+        <div class="title">Menu</div>
+        <ul class="list">
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+            </li>
+            <li>
+                <a href="">Store</a>
+            </li>
+            <li>
+                <a href="https://discord.gg/573RkWRjdS">Discord</a>
+            </li>
+            <li>
+            </li>
+        </ul>
+    </div>
+
+    <!-- TOP -->
+    <div class="top">
+        <div class="inner">
+            <div class="logo-info">
+                <div class="info minecraft" onclick="copy('play.mospanas.it')">
+                    <div class="txt l">
+                        <small id="ip-text">Premi per Copiare L'IP</small>
+                        <div class="players" id="mc-users">0 Giocatori Online</div>
+                    </div>
+
+                    <div class="icon">
+                        <span class="mdi-25px mdi-minecraft"></span>
+                    </div>
+                </div>
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="LOGO">
+                </a>
+                <a href="https://discord.gg/pd9sYV58Tj" target="_blink">
+                    <div class="info discord">
+                        <div class="icon">
+                            <span class="mdi-25px mdi-discord"></span>
+                        </div>
+
+                        <div class="txt r">
+                            <small>Entra nel nostro discord</small>
+                            <div class="users" id="ds-users">0 Utenti Online</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="menu-btn" id="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <div class="nav">
+                <a class="page" href="index.html">Home</a>
+                <a class="page store" ">Store</a>
+                <a class="page" href="https://discord.gg/pd9sYV58Tj">Discord</a>
+            </div>
+        </div>
+
+        <!-- PARTICLES -->
+        <div id="tsparticles">
+            <canvas class="tsparticles-canvas-el" width="714" height="390" style="width: 100%; height: 100%; position: fixed; z-index: 0; top: 0px; left: 0px; pointer-events: none; background-color: rgb(0, 0, 0);">
+            </canvas>
+        </div>
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="bottom">
+        <div class="center">
+            <div class="inner">
+                <div class="c">
+                    <div class="title">Chi Siamo</div>
+                    <div class="text">
+                        MosPanas è un server Minecraft Java Edition, nato il 18/02/2023. 
+                        Nato per il medesimo gioco minecraft, dopo una serie di decisioni il server si è trasformato in un server per parlare a tema "Anime" chiamato look sky, ma dopo alcuni problemi siamo tornati su minecraft col nome Look Sky, ma per la nostalgia l'owner ha ridato al server il suo antico nome "Mos Panas".
+                    </div>
+                </div>
+                <div class="c cc">
+                    <div class="title">Link Utili</div>
+                    <div class="links" id="links">
+                        <li>
+                            <a class="utils" ">Store</a>
+                        </li>
+                        <li>
+                            <a class="utils" href="https://discord.gg/pd9sYV58Tj">Discord</a>
+                        </li>
+                        <li>
+                            <a class="utils f" href="https://t.me/CoralMC">Telegram</a>
+                        </li>
+                    </div>
+                </div>
+                <div class="c">
+                    <div class="title">Supportaci</div>
+                    <div class="text">
+                        Regalati un'emozione unica supportando il tuo server preferito!
+                        <a class="btn" href="">Store</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+
+    <!-- MC -->
+    <script src="https://mcapi.us/scripts/minecraft.min.js"></script>
+
+    <!-- Particles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-snow@1.22.2/tsparticles.preset.snow.bundle.min.js" integrity="sha256-fwbCGHOcQim0BwMuHNgSYNT2mIEKeYQ+fcuAB6aARrc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-stars@1.22.2/tsparticles.preset.stars.bundle.min.js" integrity="sha256-7dK7v5ByAUb4+FFJDDFxprNOM5UywgKdcVlMgvZD3mw=" crossorigin="anonymous"></script>
+
+    <script>
+        // MINECRAFT
+        MinecraftAPI.getServerStatus('play.mospanas.it', {}, (error, status) => {
+            if (error) return document.getElementById('mc-users').innerHTML = 'Caricamento in corso...';
+
+            document.getElementById('mc-users').innerHTML = status.players.now + " Giocatori Online"
+        });
+    </script>
+
+    <script>
+        // DISCORD
+        const discord = "1076607970055569428";
+        fetch(`https://discordapp.com/api/guilds/${discord}/widget.json`)
+            .then(result => result.json().then(data =>
+                document.getElementById("ds-users").innerHTML = data.presence_count + " Utenti Online"
+            ));
+    </script>
+
+    <script>
+        // TS Particles
+        tsParticles.load("tsparticles", {
+            preset: "stars"
+        });
+    </script>
+
+
+</body>
+</html>
